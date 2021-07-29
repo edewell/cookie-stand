@@ -48,30 +48,78 @@ let Seattle = {
 
 
     show() {
-        this.getcookiesSoldPerHour();
-        const unorderedList = document.getElementById('Seattle');
-        for (let b = 0; b < buisnessHours.length; b++) {
-            const listItem = document.createElement('li');
-            // 6am: 16 cookies
-            listItem.textContent = buisnessHours[b] + ';' + this.cookiesSoldPerHour[b] + 'cookies';
-            unorderedList.appendChild(listItem);
-        }
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
-        unorderedList.appendChild(listItem);
+        // this.getcookiesSoldPerHour();
+        // this.CitiesTableData();
+        // const table = document.getElementById('mySales');
+        // for (let b = 0; b < buisnessHours.length; b++) {
+        //     const listItem = document.createElement('li');
+        //     // 6am: 16 cookies
+        //     listItem.textContent = buisnessHours[b] + ';' + this.cookiesSoldPerHour[b] + 'cookies';
+        //     unorderedList.appendChild(listItem);
+        // }
+        // const listItem = document.createElement('li');
+        // table.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
+        // unorderedList.appendChild(listItem);
+        // for (let b = 0; b < CitiesTabledata.length; b++) {
+        //     const table = document.createElement('th');
+        //     // 6am: 16 cookies
+        //     table.textContent = CitiesTabledata[b] + ';' + this.cookiesSoldPerHour[b] + 'cookies';
+        //     table.appendChild(table);
+        // }
         
+        // const table = document.createElement('th');
+        // table.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
+        // table.appendChild(table);
+        
+    },
+    
+    showTable() {
+        const table = getElementById('mySales');
+        
+        onsole.log('The element: ${table}')
+
+        const buisnessHours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm"]
+
+        for (let b = 0; b < buisnessHours.length; b++) {
+            
+            let element = buisnessHours[b];
+            
+            const splitData = element.split(" ");
+            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
+
+            const newRowEl = document('tr')
+
+            const dataCell = document.createElement('th')
+            const dataTxt = document.createTextNode(splitData[0])
+            dataCell.appendChild(dataTxt);
+
+            const cityCell = document.createElement('th')
+            const cityTxt = document.createTextNode(splitData[1])
+            cityCell.appendChild(cityTxt);
+
+            newRowEl.appendChild(dataCell);
+            newRowEl.appendChild(cityCell);
+
+            console.log("Adding Row ${newRoleEl}")
+            table.appendChild(newRowEl);
+        }
     }
 
+  }
 
 
-}
+
+    
+
+
 
 
 
 Seattle.show();
+Seattle.showTable();
 
-for (let index = 0; index < Seattle.customersPerHour; index++) {
-    console.log(Seattle.customersPerHour[index]);
+for (let index = 0; index < Seattle.buisnessHours; index++) {
+    console.log(Seattle.buisnessHours[index]);
 
 }
 
