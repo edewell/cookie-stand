@@ -1,4 +1,4 @@
-// alert("Check Out Our Stores!!!")
+alert("Check Out Our Stores!!!")
 
 // running random 
 function getRandomNumber(minCustomers, maxCustomers) {
@@ -59,6 +59,7 @@ let Seattle = {
         const listItem = document.createElement('li');
         listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
         unorderedList.appendChild(listItem);
+        
     }
 
 
