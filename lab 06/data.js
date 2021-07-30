@@ -8,6 +8,7 @@ function getRandomNumber(minCustomers, maxCustomers) {
 
 
 const buisnessHours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm"]
+const cities = ["Seattle", "Tokyo", "Dubai", "Paris", "Lima"]
 
 
 
@@ -74,26 +75,29 @@ let Seattle = {
     },
     
     showTable() {
-        const table = getElementById('mySales');
+        let table = document.getElementById('mySales');
+        // this.totalDailyCookies(),
         
-        onsole.log('The element: ${table}')
+        console.log('The element: ${table}')
+        
+        const city1 = ["Seattle"]
 
-        const buisnessHours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm", "8pm"]
+     
+    
+        for (let b = 0; b < city1.length; b++) {
+            
+            let element = city1[b];
 
-        for (let b = 0; b < buisnessHours.length; b++) {
-            
-            let element = buisnessHours[b];
-            
             const splitData = element.split(" ");
             console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
 
-            const newRowEl = document('tr')
+            const newRowEl = document.createElement('tr')
 
-            const dataCell = document.createElement('th')
+            const dataCell = document.createElement('td')
             const dataTxt = document.createTextNode(splitData[0])
             dataCell.appendChild(dataTxt);
 
-            const cityCell = document.createElement('th')
+            const cityCell = document.createElement('td')
             const cityTxt = document.createTextNode(splitData[1])
             cityCell.appendChild(cityTxt);
 
@@ -109,13 +113,7 @@ let Seattle = {
 
 
 
-    
-
-
-
-
-
-Seattle.show();
+// Seattle.show();
 Seattle.showTable();
 
 for (let index = 0; index < Seattle.buisnessHours; index++) {
@@ -162,23 +160,57 @@ let Tokyo = {
     },
 
 
-    show() {
+    // show() {
+    //     this.getcookiesSoldPerHour();
+    //     const unorderedList = document.getElementById('Tokyo');
+    //     for (let a = 0; a < buisnessHours.length; a++) {
+    //         const listItem = document.createElement('li');
+    //         // 6am: 16 cookies
+    //         listItem.textContent = buisnessHours[a] + ';' + this.cookiesSoldPerHour[a] + 'cookies';
+    //         unorderedList.appendChild(listItem);
+    //     }
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
+    //     unorderedList.appendChild(listItem);
+    // },
+
+    showTable() {
         this.getcookiesSoldPerHour();
-        const unorderedList = document.getElementById('Tokyo');
-        for (let a = 0; a < buisnessHours.length; a++) {
-            const listItem = document.createElement('li');
-            // 6am: 16 cookies
-            listItem.textContent = buisnessHours[a] + ';' + this.cookiesSoldPerHour[a] + 'cookies';
-            unorderedList.appendChild(listItem);
+        let table = document.getElementById('mySales');
+        
+        console.log('The element: ${table}')
+        
+        const city2 = ["Tokyo"]
+
+        for (let a = 0; a < city2.length; a++) {
+            
+            let element = city2[a];
+            
+            const splitData = element.split(" ");
+            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
+
+            const newRowEl = document.createElement('tr')
+
+            const dataCell = document.createElement('td')
+            const dataTxt = document.createTextNode(splitData[0])
+            dataCell.appendChild(dataTxt);
+
+            const cityCell = document.createElement('td')
+            const cityTxt = document.createTextNode(splitData[1])
+            cityCell.appendChild(cityTxt);
+
+            newRowEl.appendChild(dataCell);
+            newRowEl.appendChild(cityCell);
+
+            console.log("Adding Row ${newRoleEl}")
+            table.appendChild(newRowEl);
         }
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
-        unorderedList.appendChild(listItem);
     }
 
 }
 
-Tokyo.show();
+// Tokyo.show();
+Tokyo.showTable();
 
 for (let index = 0; index < Tokyo.customersPerHour; index++) {
     console.log(Tokyo.customersPerHour[index]);
@@ -226,27 +258,59 @@ let Dubai = {
     },
 
 
-    show() {
-        this.getcookiesSoldPerHour();
-        const unorderedList = document.getElementById('Dubai');
-        for (let c = 0; c < buisnessHours.length; c++) {
-            const listItem = document.createElement('li');
-            // 6am: 16 cookies
-            listItem.textContent = buisnessHours[c] + ';' + this.cookiesSoldPerHour[c] + 'cookies';
-            unorderedList.appendChild(listItem);
+    // show() {
+    //     this.getcookiesSoldPerHour();
+    //     const unorderedList = document.getElementById('Dubai');
+    //     for (let c = 0; c < buisnessHours.length; c++) {
+    //         const listItem = document.createElement('li');
+    //         // 6am: 16 cookies
+    //         listItem.textContent = buisnessHours[c] + ';' + this.cookiesSoldPerHour[c] + 'cookies';
+    //         unorderedList.appendChild(listItem);
+    //     }
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
+    //     unorderedList.appendChild(listItem);
+    // },
+
+    showTable() {
+        let table = document.getElementById('mySales');
+        
+        console.log('The element: ${table}')
+        
+        const city3 = ["Dubai"]
+
+
+        for (let c = 0; c < city3.length; c++) {
+            
+            let element = city3[c];
+
+            const splitData = element.split(" ");
+            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
+
+            const newRowEl = document.createElement('tr')
+
+            const dataCell = document.createElement('td')
+            const dataTxt = document.createTextNode(splitData[0])
+            dataCell.appendChild(dataTxt);
+
+            const cityCell = document.createElement('td')
+            const cityTxt = document.createTextNode(splitData[1])
+            cityCell.appendChild(cityTxt);
+
+            newRowEl.appendChild(dataCell);
+            newRowEl.appendChild(cityCell);
+
+            console.log("Adding Row ${newRoleEl}")
+            table.appendChild(newRowEl);
         }
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
-        unorderedList.appendChild(listItem);
     }
-
-
 
 }
 
 
 
-Dubai.show();
+// Dubai.show();
+Dubai.showTable();
 
 for (let index = 0; index < Dubai.customersPerHour; index++) {
     console.log(Dubai.customersPerHour[index]);
@@ -291,27 +355,61 @@ let Paris = {
     },
 
 
-    show() {
-        this.getcookiesSoldPerHour();
-        const unorderedList = document.getElementById('Paris');
-        for (let d = 0; d < buisnessHours.length; d++) {
-            const listItem = document.createElement('li');
-            // 6am: 16 cookies
-            listItem.textContent = buisnessHours[d] + ';' + this.cookiesSoldPerHour[d] + 'cookies';
-            unorderedList.appendChild(listItem);
+    // show() {
+    //     this.getcookiesSoldPerHour();
+    //     const unorderedList = document.getElementById('Paris');
+    //     for (let d = 0; d < buisnessHours.length; d++) {
+    //         const listItem = document.createElement('li');
+    //         // 6am: 16 cookies
+    //         listItem.textContent = buisnessHours[d] + ';' + this.cookiesSoldPerHour[d] + 'cookies';
+    //         unorderedList.appendChild(listItem);
+    //     }
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
+    //     unorderedList.appendChild(listItem);
+    // },
+
+    showTable() {
+        let table = document.getElementById('mySales');
+        
+        console.log('The element: ${table}')
+        
+        const city4 = ["Paris"]
+
+
+        for (let d = 0; d < city4.length; d++) {
+            
+            let element = city4[d];
+
+            const splitData = element.split(" ");
+            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
+
+            const newRowEl = document.createElement('tr')
+
+            const dataCell = document.createElement('td')
+            const dataTxt = document.createTextNode(splitData[0])
+            dataCell.appendChild(dataTxt);
+
+            const cityCell = document.createElement('td')
+            const cityTxt = document.createTextNode(splitData[1])
+            cityCell.appendChild(cityTxt);
+
+            newRowEl.appendChild(dataCell);
+            newRowEl.appendChild(cityCell);
+
+            console.log("Adding Row ${newRoleEl}")
+            table.appendChild(newRowEl);
         }
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
-        unorderedList.appendChild(listItem);
+
+        // let tableData = 
     }
-
-
 
 }
 
 
 
-Paris.show();
+// Paris.show();
+Paris.showTable();
 
 for (let g = 0; g < Paris.customersPerHour; g++) {
     console.log(Paris.customersPerHour[g]);
@@ -357,27 +455,59 @@ let Lima = {
     },
 
 
-    show() {
-        this.getcookiesSoldPerHour();
-        const unorderedList = document.getElementById('Lima');
-        for (let j = 0; j < buisnessHours.length; j++) {
-            const listItem = document.createElement('li');
-            // 6am: 16 cookies
-            listItem.textContent = buisnessHours[j] + ';' + this.cookiesSoldPerHour[j] + 'cookies';
-            unorderedList.appendChild(listItem);
+    // show() {
+    //     this.getcookiesSoldPerHour();
+    //     const unorderedList = document.getElementById('Lima');
+    //     for (let j = 0; j < buisnessHours.length; j++) {
+    //         const listItem = document.createElement('li');
+    //         // 6am: 16 cookies
+    //         listItem.textContent = buisnessHours[j] + ';' + this.cookiesSoldPerHour[j] + 'cookies';
+    //         unorderedList.appendChild(listItem);
+    //     }
+    //     const listItem = document.createElement('li');
+    //     listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
+    //     unorderedList.appendChild(listItem);
+    // },
+
+    showTable() {
+        let table = document.getElementById('mySales');
+        
+        console.log('The element: ${table}')
+        
+        const city5 = ["Lima"]
+
+
+        for (let e = 0; e < city5.length; e++) {
+            
+            let element = city5[e];
+
+            const splitData = element.split(" ");
+            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
+
+            const newRowEl = document.createElement('tr')
+
+            const dataCell = document.createElement('td')
+            const dataTxt = document.createTextNode(splitData[0])
+            dataCell.appendChild(dataTxt);
+
+            const cityCell = document.createElement('td')
+            const cityTxt = document.createTextNode(splitData[1])
+            cityCell.appendChild(cityTxt);
+
+            newRowEl.appendChild(dataCell);
+            newRowEl.appendChild(cityCell);
+
+            console.log("Adding Row ${newRoleEl}")
+            table.appendChild(newRowEl);
         }
-        const listItem = document.createElement('li');
-        listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
-        unorderedList.appendChild(listItem);
     }
-
-
 
 }
 
 
 
-Lima.show();
+// Lima.show();
+Lima.showTable();
 
 for (let q = 0; q < Lima.customersPerHour; q++) {
     console.log(Lima.customersPerHour[q]);
