@@ -13,6 +13,7 @@ const cities = ["Seattle", "Tokyo", "Dubai", "Paris", "Lima"]
 
 
 let Seattle = {
+    cityName: "Seattle",
     minCustomers: 23,
     maxCustomers: 65,
     avgCookies: 6.3,
@@ -37,6 +38,7 @@ let Seattle = {
         totalDailyCookies = 0;
         this.getCustomersPerHour();
 
+
         for (let index = 0; index < this.customersPerHour.length; index++) {
 
             let dailyCookies = Math.floor(this.customersPerHour[index] * this.avgCookies);
@@ -44,21 +46,25 @@ let Seattle = {
             this.cookiesSoldPerHour.push(dailyCookies);
 
             this.totalDailyCookies += dailyCookies;
+            
         }
+        this.cookiesSoldPerHour.push(this.totalDailyCookies);
+        console.log(this.cookiesSoldPerHour);
     },
+    
 
 
     show() {
-        // this.getcookiesSoldPerHour();
-        // this.CitiesTableData();
+        this.getcookiesSoldPerHour();
+        this.CitiesTableData();
         // const table = document.getElementById('mySales');
-        // for (let b = 0; b < buisnessHours.length; b++) {
-        //     const listItem = document.createElement('li');
-        //     // 6am: 16 cookies
-        //     listItem.textContent = buisnessHours[b] + ';' + this.cookiesSoldPerHour[b] + 'cookies';
-        //     unorderedList.appendChild(listItem);
-        // }
-        // const listItem = document.createElement('li');
+        for (let b = 0; b < buisnessHours.length; b++) {
+            const listItem = document.createElement('li');
+            // 6am: 16 cookies
+            listItem.textContent = buisnessHours[b] + ';' + this.cookiesSoldPerHour[b] + 'cookies';
+            unorderedList.appendChild(listItem);
+        }
+        const listItem = document.createElement('li');
         // table.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
         // unorderedList.appendChild(listItem);
         // for (let b = 0; b < CitiesTabledata.length; b++) {
@@ -75,38 +81,29 @@ let Seattle = {
     },
     
     showTable() {
+        this.getcookiesSoldPerHour();
         let table = document.getElementById('mySales');
-        // this.totalDailyCookies(),
+        const newRowEl = document.createElement('tr');
+       
+        const newHeadEl = document.createElement('th'); 
+        newHeadEl.textContent = this.cityName; 
+        newRowEl.appendChild(newHeadEl)
+       
+        console.log(this.cookiesSoldPerHour);
         
-        console.log('The element: ${table}')
-        
-        const city1 = ["Seattle"]
-
-     
     
-        for (let b = 0; b < city1.length; b++) {
+        for (let b = 0; b < this.cookiesSoldPerHour.length; b++) {
+            const newElement = document.createElement('td');
+            newElement.textContent = this.cookiesSoldPerHour[b];
+            newRowEl.appendChild(newElement);
+
+
             
-            let element = city1[b];
-
-            const splitData = element.split(" ");
-            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
-
-            const newRowEl = document.createElement('tr')
-
-            const dataCell = document.createElement('td')
-            const dataTxt = document.createTextNode(splitData[0])
-            dataCell.appendChild(dataTxt);
-
-            const cityCell = document.createElement('td')
-            const cityTxt = document.createTextNode(splitData[1])
-            cityCell.appendChild(cityTxt);
-
-            newRowEl.appendChild(dataCell);
-            newRowEl.appendChild(cityCell);
-
-            console.log("Adding Row ${newRoleEl}")
-            table.appendChild(newRowEl);
+           
         }
+
+        table.appendChild(newRowEl)
+
     }
 
   }
@@ -125,6 +122,7 @@ for (let index = 0; index < Seattle.buisnessHours; index++) {
 
 
 let Tokyo = {
+    cityName: "Tokyo",
     minCustomers: 3,
     maxCustomers: 24,
     avgCookies: 1.2,
@@ -173,38 +171,30 @@ let Tokyo = {
     //     listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
     //     unorderedList.appendChild(listItem);
     // },
-
+   
     showTable() {
         this.getcookiesSoldPerHour();
         let table = document.getElementById('mySales');
+        const newRowEl = document.createElement('tr');
+       
+        const newHeadEl = document.createElement('th'); 
+        newHeadEl.textContent = this.cityName; 
+        newRowEl.appendChild(newHeadEl)
+       
+        console.log(this.cookiesSoldPerHour);
         
-        console.log('The element: ${table}')
-        
-        const city2 = ["Tokyo"]
+    
+        for (let a = 0; a < this.cookiesSoldPerHour.length; a++) {
+            const newElement = document.createElement('td');
+            newElement.textContent = this.cookiesSoldPerHour[a];
+            newRowEl.appendChild(newElement);
 
-        for (let a = 0; a < city2.length; a++) {
+
             
-            let element = city2[a];
-            
-            const splitData = element.split(" ");
-            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
-
-            const newRowEl = document.createElement('tr')
-
-            const dataCell = document.createElement('td')
-            const dataTxt = document.createTextNode(splitData[0])
-            dataCell.appendChild(dataTxt);
-
-            const cityCell = document.createElement('td')
-            const cityTxt = document.createTextNode(splitData[1])
-            cityCell.appendChild(cityTxt);
-
-            newRowEl.appendChild(dataCell);
-            newRowEl.appendChild(cityCell);
-
-            console.log("Adding Row ${newRoleEl}")
-            table.appendChild(newRowEl);
+           
         }
+        
+        table.appendChild(newRowEl)
     }
 
 }
@@ -223,6 +213,7 @@ for (let index = 0; index < Tokyo.customersPerHour; index++) {
 
 
 let Dubai = {
+    cityName: "Dubai",
     minCustomers: 11,
     maxCustomers: 38,
     avgCookies: 3.7,
@@ -273,36 +264,27 @@ let Dubai = {
     // },
 
     showTable() {
+        this.getcookiesSoldPerHour();
         let table = document.getElementById('mySales');
+        const newRowEl = document.createElement('tr');
+       
+        const newHeadEl = document.createElement('th'); 
+        newHeadEl.textContent = this.cityName; 
+        newRowEl.appendChild(newHeadEl)
+       
+        console.log(this.cookiesSoldPerHour);
         
-        console.log('The element: ${table}')
-        
-        const city3 = ["Dubai"]
+    
+        for (let c = 0; c < this.cookiesSoldPerHour.length; c++) {
+            const newElement = document.createElement('td');
+            newElement.textContent = this.cookiesSoldPerHour[c];
+            newRowEl.appendChild(newElement);
 
 
-        for (let c = 0; c < city3.length; c++) {
             
-            let element = city3[c];
-
-            const splitData = element.split(" ");
-            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
-
-            const newRowEl = document.createElement('tr')
-
-            const dataCell = document.createElement('td')
-            const dataTxt = document.createTextNode(splitData[0])
-            dataCell.appendChild(dataTxt);
-
-            const cityCell = document.createElement('td')
-            const cityTxt = document.createTextNode(splitData[1])
-            cityCell.appendChild(cityTxt);
-
-            newRowEl.appendChild(dataCell);
-            newRowEl.appendChild(cityCell);
-
-            console.log("Adding Row ${newRoleEl}")
-            table.appendChild(newRowEl);
+           
         }
+        table.appendChild(newRowEl)
     }
 
 }
@@ -320,6 +302,7 @@ for (let index = 0; index < Dubai.customersPerHour; index++) {
 
 
 let Paris = {
+    cityName: "Paris",
     minCustomers: 20,
     maxCustomers: 38,
     avgCookies: 2.3,
@@ -369,39 +352,29 @@ let Paris = {
     //     unorderedList.appendChild(listItem);
     // },
 
+    
     showTable() {
+        this.getcookiesSoldPerHour();
         let table = document.getElementById('mySales');
+        const newRowEl = document.createElement('tr');
+       
+        const newHeadEl = document.createElement('th'); 
+        newHeadEl.textContent = this.cityName; 
+        newRowEl.appendChild(newHeadEl)
+       
+        console.log(this.cookiesSoldPerHour);
         
-        console.log('The element: ${table}')
-        
-        const city4 = ["Paris"]
+    
+        for (let e = 0; e < this.cookiesSoldPerHour.length; e++) {
+            const newElement = document.createElement('td');
+            newElement.textContent = this.cookiesSoldPerHour[e];
+            newRowEl.appendChild(newElement);
 
 
-        for (let d = 0; d < city4.length; d++) {
             
-            let element = city4[d];
-
-            const splitData = element.split(" ");
-            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
-
-            const newRowEl = document.createElement('tr')
-
-            const dataCell = document.createElement('td')
-            const dataTxt = document.createTextNode(splitData[0])
-            dataCell.appendChild(dataTxt);
-
-            const cityCell = document.createElement('td')
-            const cityTxt = document.createTextNode(splitData[1])
-            cityCell.appendChild(cityTxt);
-
-            newRowEl.appendChild(dataCell);
-            newRowEl.appendChild(cityCell);
-
-            console.log("Adding Row ${newRoleEl}")
-            table.appendChild(newRowEl);
+           
         }
-
-        // let tableData = 
+        table.appendChild(newRowEl)
     }
 
 }
@@ -420,6 +393,7 @@ for (let g = 0; g < Paris.customersPerHour; g++) {
 
 
 let Lima = {
+    cityName: "Lima",
     minCustomers: 2,
     maxCustomers: 16,
     avgCookies: 4.6,
@@ -468,38 +442,28 @@ let Lima = {
     //     listItem.textContent = 'Total: ' + this.totalDailyCookies + ' cookies';
     //     unorderedList.appendChild(listItem);
     // },
-
     showTable() {
+        this.getcookiesSoldPerHour();
         let table = document.getElementById('mySales');
+        const newRowEl = document.createElement('tr');
+       
+        const newHeadEl = document.createElement('th'); 
+        newHeadEl.textContent = this.cityName; 
+        newRowEl.appendChild(newHeadEl)
+       
+        console.log(this.cookiesSoldPerHour);
         
-        console.log('The element: ${table}')
-        
-        const city5 = ["Lima"]
+    
+        for (let w = 0; w< this.cookiesSoldPerHour.length; w++) {
+            const newElement = document.createElement('td');
+            newElement.textContent = this.cookiesSoldPerHour[w];
+            newRowEl.appendChild(newElement);
 
 
-        for (let e = 0; e < city5.length; e++) {
             
-            let element = city5[e];
-
-            const splitData = element.split(" ");
-            console.log("Out: ${splitData[0]} In:  ${splitData[1]}");
-
-            const newRowEl = document.createElement('tr')
-
-            const dataCell = document.createElement('td')
-            const dataTxt = document.createTextNode(splitData[0])
-            dataCell.appendChild(dataTxt);
-
-            const cityCell = document.createElement('td')
-            const cityTxt = document.createTextNode(splitData[1])
-            cityCell.appendChild(cityTxt);
-
-            newRowEl.appendChild(dataCell);
-            newRowEl.appendChild(cityCell);
-
-            console.log("Adding Row ${newRoleEl}")
-            table.appendChild(newRowEl);
+           
         }
+        table.appendChild(newRowEl)
     }
 
 }
